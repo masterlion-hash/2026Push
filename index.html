@@ -15,7 +15,7 @@
       --accent: #f5a623;
       --accent2: #ff6b35;
       --text: #e8e8e0;
-      --muted: #666;
+      --muted: #555;
       --border: #1e1e1e;
       --green: #4ade80;
     }
@@ -24,17 +24,18 @@
       background: var(--bg);
       color: var(--text);
       font-family: 'DM Mono', monospace;
-      font-size: 14px;
-      line-height: 1.8;
+      font-size: 13px;
       min-height: 100vh;
+      display: flex;
+      flex-direction: column;
       overflow-x: hidden;
     }
 
     /* Noise overlay */
     .noise {
       position: fixed; inset: 0; z-index: 0; pointer-events: none;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-      opacity: 0.4;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+      opacity: 0.35;
     }
 
     /* Glow effects */
@@ -52,7 +53,7 @@
     /* Nav */
     nav {
       position: sticky; top: 0; z-index: 20;
-      background: rgba(10,10,10,0.92);
+      background: rgba(10,10,10,0.95);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
       padding: 1rem 2rem;
@@ -60,7 +61,7 @@
     }
     .logo {
       font-family: 'Syne', sans-serif;
-      font-weight: 800; font-size: 1.1rem;
+      font-weight: 800; font-size: 1rem;
       color: var(--accent); letter-spacing: -0.02em;
       text-decoration: none;
     }
@@ -78,9 +79,9 @@
     }
     .nav-links a:hover { color: var(--text); }
     .tag {
-      font-size: 9px; padding: 2px 8px;
-      border: 1px solid var(--accent2);
-      color: var(--accent2);
+      font-size: 9px; padding: 2px 7px;
+      border: 1px solid var(--border);
+      color: var(--muted);
       border-radius: 2px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -105,14 +106,14 @@
     .hero h1 {
       font-family: 'Syne', sans-serif;
       font-weight: 800;
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
-      line-height: 1.05;
-      letter-spacing: -0.04em;
-      margin-bottom: 1.5rem;
-      background: linear-gradient(135deg, var(--text) 30%, var(--accent) 70%, var(--accent2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.8rem;
+    }
+    .hero h1 em {
+      color: var(--accent);
+      font-style: normal;
     }
     .hero p {
       color: var(--muted);
@@ -169,36 +170,38 @@
     }
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.2rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
     }
     .card {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 6px;
-      padding: 1.8rem;
-      transition: border-color 0.2s, transform 0.2s;
+      padding: 1.5rem;
+      transition: border-color 0.2s;
     }
     .card:hover {
       border-color: #333;
-      transform: translateY(-2px);
     }
-    .card-icon {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      display: block;
+    .card-label {
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
     }
     .card h3 {
       font-family: 'Syne', sans-serif;
       font-weight: 700;
-      font-size: 0.95rem;
-      margin-bottom: 0.6rem;
+      font-size: 1rem;
+      margin-bottom: 0.8rem;
       color: var(--text);
     }
     .card p {
       color: var(--muted);
       font-size: 12px;
       line-height: 1.7;
+      margin-bottom: 1rem;
     }
 
     /* Pipeline section */
@@ -341,7 +344,7 @@
   <div class="glow-2"></div>
 
   <nav>
-    <a href="/" class="logo">AutoPost<span>AI</span></a>
+    <a href="/" class="logo">Auto<span>Post</span> AI</a>
     <span class="tag">v1.0</span>
     <div class="nav-links">
       <a href="#features">Features</a>
@@ -353,9 +356,9 @@
 
   <!-- Hero -->
   <section class="hero">
-    <div class="hero-eyebrow">TikTok Content Posting API</div>
-    <h1>Automate Your TikTok Publishing</h1>
-    <p>Full-stack Flask application for OAuth 2.0 authorization and direct video publishing to TikTok. Connect, upload, and publish — all from one pipeline.</p>
+    <div class="hero-eyebrow">TikTok Content Posting Pipeline</div>
+    <h1>Algorithmic <em>video publishing</em><br/>on autopilot.</h1>
+    <p>Connect your TikTok account, generate AI-powered faceless videos, and publish directly — all from a single workflow.</p>
     <div class="hero-buttons">
       <a href="https://github.com/masterlion-hash/2026Push" class="btn btn-primary" target="_blank">
         ★ View on GitHub
@@ -368,60 +371,58 @@
 
   <!-- Features -->
   <section class="features" id="features">
-    <div class="section-label">What It Does</div>
+    <div class="section-label">The Workflow</div>
     <div class="grid">
       <div class="card">
-        <span class="card-icon">🔐</span>
-        <h3>OAuth 2.0 Flow</h3>
-        <p>Secure TikTok authorization with PKCE-style CSRF protection. User grants access, app gets tokens — no passwords stored.</p>
+        <p class="card-label">Step 01</p>
+        <h3>Authorization</h3>
+        <p>Connect your TikTok account securely via OAuth 2.0. Your credentials are never stored — only a session token is held in memory.</p>
       </div>
       <div class="card">
-        <span class="card-icon">📤</span>
-        <h3>Direct Video Upload</h3>
-        <p>Chunked file upload via TikTok's Content Posting API. Supports videos up to the platform limit with progress tracking.</p>
+        <p class="card-label">Step 02</p>
+        <h3>Creator Info</h3>
+        <p>Fetch your TikTok creator settings to verify privacy defaults, duet settings, and comment configuration before uploading.</p>
       </div>
       <div class="card">
-        <span class="card-icon">⚡</span>
-        <h3>Creator Info Query</h3>
-        <p>Fetch allowed privacy levels, comment settings, and duet/stitch options before publishing. No guesswork.</p>
+        <p class="card-label">Step 03</p>
+        <h3>Upload &amp; Publish</h3>
+        <p>Initialize a video upload to TikTok's Content API, transfer the file, and trigger a direct post with title and privacy settings.</p>
       </div>
       <div class="card">
-        <span class="card-icon">📊</span>
-        <h3>Status Polling</h3>
-        <p>Track publish status in real-time. Know exactly when your video goes live or if something needs attention.</p>
-      </div>
-      <div class="card">
-        <span class="card-icon">🎨</span>
-        <h3>Built-in Dashboard</h3>
-        <p>Clean, dark-themed UI with all controls in one place. Connect, configure, upload, and monitor — zero context switching.</p>
-      </div>
-      <div class="card">
-        <span class="card-icon">🧪</span>
-        <h3>Sandbox Ready</h3>
-        <p>Test the full flow in TikTok's sandbox environment before going live. Safe experimentation, no real posts.</p>
+        <p class="card-label">Step 04</p>
+        <h3>Post Status</h3>
+        <p>Poll the TikTok API to check the processing and publication status of your uploaded video after submission.</p>
       </div>
     </div>
   </section>
 
   <!-- Pipeline -->
   <section class="pipeline" id="pipeline">
-    <div class="section-label">The Pipeline</div>
+    <div class="section-label">Pipeline Flow</div>
     <div class="steps">
       <div class="step" data-num="1">
-        <h4>Authorize</h4>
-        <p>User clicks "Connect TikTok" → redirected to TikTok OAuth → grants <code>user.info.basic</code> + <code>video.publish</code> scopes.</p>
+        <h4>Connect TikTok</h4>
+        <p>User clicks "Connect TikTok" → redirected to TikTok OAuth</p>
       </div>
       <div class="step" data-num="2">
-        <h4>Query Creator Info</h4>
-        <p>App calls <code>/creator_info</code> to discover what privacy levels and interaction settings the user allows.</p>
+        <h4>Token Exchange</h4>
+        <p>TikTok returns auth code → App exchanges for access_token</p>
       </div>
       <div class="step" data-num="3">
-        <h4>Upload Video</h4>
-        <p>Initialize upload via <code>/video/init/</code>, then push the video file in chunks to TikTok's upload URL.</p>
+        <h4>Creator Info</h4>
+        <p>App calls /creator_info to get allowed privacy/comment settings</p>
       </div>
       <div class="step" data-num="4">
+        <h4>Init Upload</h4>
+        <p>App calls /video/init → gets upload_url + publish_id</p>
+      </div>
+      <div class="step" data-num="5">
+        <h4>File Transfer</h4>
+        <p>App PUTs video file to upload_url (chunked for large files)</p>
+      </div>
+      <div class="step" data-num="6">
         <h4>Confirm Publication</h4>
-        <p>Poll <code>/status/fetch/</code> until TikTok confirms the video is published and live on the platform.</p>
+        <p>App calls /status/fetch with publish_id to confirm live post</p>
       </div>
     </div>
   </section>
