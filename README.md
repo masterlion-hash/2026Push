@@ -59,8 +59,8 @@ TikTok requires public URLs for both documents. This repo uses **GitHub Pages**:
 ### GitHub Pages (this repo)
 1. Go to **Settings → Pages → Deploy from branch** (`main`, root `/`)
 2. Your URLs will be:
-   - `https://masterlion-harsh.github.io/2026Push/tos.html`
-   - `https://masterlion-harsh.github.io/2026Push/privacy.html`
+   - `https://masterlion-hash.github.io/2026Push/tos.html`
+   - `https://masterlion-hash.github.io/2026Push/privacy.html`
 3. Paste these URLs into TikTok Developer Console
 
 ---
@@ -71,8 +71,8 @@ TikTok requires public URLs for both documents. This repo uses **GitHub Pages**:
 |-------|-------|
 | App Name | AutoPost AI |
 | Category | Tools & Utilities |
-| ToS URL | `https://masterlion-harsh.github.io/2026Push/tos.html` |
-| Privacy URL | `https://masterlion-harsh.github.io/2026Push/privacy.html` |
+| ToS URL | `https://masterlion-hash.github.io/2026Push/tos.html` |
+| Privacy URL | `https://masterlion-hash.github.io/2026Push/privacy.html` |
 | Platform | Web |
 | Scope | `video.publish`, `user.info.basic` |
 
