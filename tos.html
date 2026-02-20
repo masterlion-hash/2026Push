@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Terms of Service — AutoPost AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --surface: #111;
+      --accent: #f5a623;
+      --accent2: #ff6b35;
+      --text: #e8e8e0;
+      --muted: #666;
+      --border: #222;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Mono', monospace;
+      font-size: 14px;
+      line-height: 1.8;
+      min-height: 100vh;
+    }
+    .noise {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      opacity: 0.4;
+    }
+    header {
+      position: sticky; top: 0; z-index: 10;
+      border-bottom: 1px solid var(--border);
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(12px);
+      padding: 1.2rem 2rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800; font-size: 1.1rem;
+      color: var(--accent);
+      letter-spacing: -0.02em;
+    }
+    .tag {
+      font-size: 10px;
+      padding: 2px 8px;
+      border: 1px solid var(--accent2);
+      color: var(--accent2);
+      border-radius: 2px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .updated {
+      margin-left: auto;
+      color: var(--muted);
+      font-size: 11px;
+    }
+    main {
+      position: relative; z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+    }
+    .hero-label {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 2rem;
+      background: linear-gradient(135deg, var(--text) 40%, var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .intro {
+      color: var(--muted);
+      border-left: 2px solid var(--accent);
+      padding-left: 1.2rem;
+      margin-bottom: 3rem;
+      font-size: 13px;
+    }
+    section {
+      margin-bottom: 2.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    section:last-child { border-bottom: none; }
+    h2 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    h2::before {
+      content: '';
+      display: block;
+      width: 20px; height: 1px;
+      background: var(--accent);
+    }
+    p { color: #aaa; margin-bottom: 0.8rem; }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0.5rem 0 0.8rem;
+    }
+    ul li {
+      color: #aaa;
+      padding: 0.3rem 0 0.3rem 1.2rem;
+      position: relative;
+    }
+    ul li::before {
+      content: '›';
+      position: absolute; left: 0;
+      color: var(--accent);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .highlight {
+      background: rgba(245,166,35,0.08);
+      border: 1px solid rgba(245,166,35,0.2);
+      border-radius: 4px;
+      padding: 1rem 1.2rem;
+      color: var(--text);
+      font-size: 13px;
+      margin: 1rem 0;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--muted);
+      font-size: 11px;
+      border-top: 1px solid var(--border);
+      position: relative; z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="noise"></div>
+  <header>
+    <span class="logo">AutoPost AI</span>
+    <span class="tag">Legal</span>
+    <span class="updated">Last updated: February 2026</span>
+  </header>
+  <main>
+    <p class="hero-label">Legal Documentation</p>
+    <h1>Terms of Service</h1>
+    <div class="intro">
+      By accessing or using AutoPost AI ("the App"), you agree to be bound by these Terms of Service. If you do not agree, do not use the App.
+    </div>
+
+    <section>
+      <h2>1. Description of Service</h2>
+      <p>AutoPost AI is a developer tool that enables authorized users to generate and publish original short-form video content to TikTok via the TikTok Content Posting API. The App uses AI-assisted workflows to produce faceless educational videos and manages the publishing process through OAuth 2.0 authorization.</p>
+    </section>
+
+    <section>
+      <h2>2. Eligibility & Account Requirements</h2>
+      <p>To use this App you must:</p>
+      <ul>
+        <li>Be at least 18 years of age</li>
+        <li>Hold a valid TikTok account in good standing</li>
+        <li>Comply with all TikTok Developer Terms and Community Guidelines</li>
+        <li>Not use the App to violate any applicable local, national, or international law</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>3. User Responsibilities</h2>
+      <p>You, the user, are solely responsible for:</p>
+      <ul>
+        <li>All content posted to TikTok via this App</li>
+        <li>Ensuring your content does not infringe third-party intellectual property rights</li>
+        <li>Compliance with TikTok's Content Policies and Advertising Guidelines</li>
+        <li>Any consequences arising from automated or direct posts made through the App</li>
+      </ul>
+      <div class="highlight">
+        AutoPost AI does not guarantee any outcome related to TikTok account growth, monetization, reach, or follower acquisition. Results are entirely dependent on platform algorithms and content quality.
+      </div>
+    </section>
+
+    <section>
+      <h2>4. API Usage & Authorization</h2>
+      <p>The App accesses TikTok's API strictly on your behalf after you explicitly authorize it via OAuth 2.0. The App will only perform actions you authorize. No posting occurs without your explicit consent and initiation.</p>
+      <p>You may revoke the App's access at any time through your TikTok account settings under "Manage App Permissions."</p>
+    </section>
+
+    <section>
+      <h2>5. Prohibited Uses</h2>
+      <p>You may not use AutoPost AI to:</p>
+      <ul>
+        <li>Post spam, misleading, or deceptive content</li>
+        <li>Circumvent TikTok rate limits or content restrictions</li>
+        <li>Resell or redistribute API access to third parties</li>
+        <li>Generate or distribute content that is harmful, hateful, or illegal</li>
+        <li>Impersonate any person or entity</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>6. Disclaimers & Limitation of Liability</h2>
+      <p>The App is provided "as is" without warranties of any kind. AutoPost AI is not affiliated with TikTok or ByteDance Ltd. We are not liable for account suspensions, content removals, or any damages arising from your use of this App or TikTok's platform decisions.</p>
+      <p>In no event shall AutoPost AI be liable for indirect, incidental, special, or consequential damages exceeding $0 USD (as this is a personal developer tool with no commercial fees).</p>
+    </section>
+
+    <section>
+      <h2>7. Modifications to Terms</h2>
+      <p>We reserve the right to update these Terms at any time. Continued use of the App after changes constitutes acceptance. The "Last Updated" date at the top of this page reflects the most recent revision.</p>
+    </section>
+
+    <section>
+      <h2>8. Contact</h2>
+      <p>For questions about these Terms, contact: <a href="mailto:dev@autopostai.app">dev@autopostai.app</a></p>
+    </section>
+  </main>
+  <footer>© 2026 AutoPost AI — Independent Developer Tool — Not affiliated with TikTok or ByteDance</footer>
+</body>
+</html>

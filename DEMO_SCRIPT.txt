@@ -1,0 +1,116 @@
+# ═══════════════════════════════════════════════════════════════════
+#  AutoPost AI — Demo Video Recording Script
+#  For TikTok Developer App Review Submission
+# ═══════════════════════════════════════════════════════════════════
+#
+#  Tool: OBS Studio (free) or Loom
+#  Duration target: 2–3 minutes
+#  Resolution: 1920x1080, 30fps
+#  IMPORTANT: Switch your TikTok app to SANDBOX MODE first
+#             (TikTok Dev Console → your app → toggle Sandbox)
+#
+# ═══════════════════════════════════════════════════════════════════
+
+DEMO SCRIPT — NARRATE OR ADD TEXT OVERLAYS AS YOU GO
+───────────────────────────────────────────────────────
+
+SCENE 1 — SETUP (~20 sec)
+──────────────────────────
+Show: TikTok Developer Console → your app page
+Show: App is in SANDBOX MODE (highlight the sandbox toggle — it must be ON)
+Show: Your app's registered scopes: video.publish, user.info.basic
+Say or overlay text:
+  "AutoPost AI — a developer tool for automated TikTok content publishing.
+   This demo runs in TikTok sandbox mode."
+
+
+SCENE 2 — START THE APP (~15 sec)
+──────────────────────────────────
+Show: Terminal window
+Type: cd tiktok-autopost && python app.py
+Show: Server startup message confirming Client Key and port 5000
+Open browser: http://localhost:5000
+Overlay: "Step 1: App running at localhost:5000"
+
+
+SCENE 3 — DASHBOARD (~20 sec)
+──────────────────────────────
+Show: The AutoPost AI dashboard at /
+Point out the 4 workflow steps visible on screen
+Overlay: "Dashboard showing the 4-step Content Posting pipeline"
+Show: "TikTok account not connected" status (red dot)
+
+
+SCENE 4 — OAUTH AUTHORIZATION (~40 sec)
+────────────────────────────────────────
+Click "Connect TikTok" button
+Show: Redirect to TikTok's official OAuth page (tiktok.com)
+Show: The permission consent screen listing requested scopes:
+      - user.info.basic
+      - video.publish
+Click "Authorize" (use your sandbox test account)
+Show: Redirect back to localhost:5000/callback
+Show: Dashboard now shows green dot + connected username
+Overlay: "Step 2: OAuth 2.0 complete — access_token issued by TikTok"
+
+
+SCENE 5 — CREATOR INFO (~20 sec)
+──────────────────────────────────
+Click "Fetch Creator Info" button
+Show: /creator-info page with JSON response from TikTok API
+Highlight fields: privacy_level_options, duet_setting, stitch_setting
+Overlay: "Step 3: Verifying creator capabilities before upload"
+
+
+SCENE 6 — UPLOAD VIDEO (~40 sec)
+──────────────────────────────────
+Click "Upload Video" button
+Show: Upload form at /upload
+Fill in:
+  - Video: [select a sample MP4 — any short test video 3-60 sec]
+  - Caption: "AI-generated faceless educational content #tech #rwanda"
+  - Privacy: SELF_ONLY (important for sandbox demo)
+Click "Upload & Publish to TikTok"
+Show: Response appearing with publish_id
+Overlay: "Step 4: /video/init called → upload_url received → video uploaded"
+
+
+SCENE 7 — STATUS CHECK (~20 sec)
+──────────────────────────────────
+Navigate to /status
+Show: JSON response from TikTok with status field
+      (sandbox will show PROCESSING or PUBLISH_COMPLETE)
+Overlay: "Step 5: Post status confirmed via /status/fetch"
+
+
+SCENE 8 — WRAP UP (~15 sec)
+─────────────────────────────
+Return to Dashboard
+Show: All 4 steps completed, account connected
+Overlay or narrate:
+  "Full pipeline demonstrated in sandbox mode:
+   OAuth → Creator check → Video upload → Publish → Status verify.
+   No real posts made during this review demo."
+
+
+═══════════════════════════════════════════════════════════════════
+POST-PRODUCTION TIPS
+═══════════════════════════════════════════════════════════════════
+1. Add text overlays for each "Step X" transition (any video editor)
+2. Speed up any loading/processing moments (1.5x–2x)
+3. Blur or redact: Client Secret, full access token values in console
+4. Do NOT blur: Client Key (awby4fbqgq1udopi) — it's in your app settings
+5. Keep total video under 50MB (OBS: use 720p + medium quality preset)
+6. MP4 format required by TikTok review upload
+
+TOOLS TO RECORD:
+  - OBS Studio: obsproject.com (free, no watermark)
+  - Loom: loom.com (free tier, easy share)
+  - QuickTime (Mac): built-in, File → New Screen Recording
+
+TEST VIDEO SOURCE (for demo):
+  Use any royalty-free short clip from:
+  - https://www.pexels.com/videos/
+  - https://pixabay.com/videos/
+  (Download MP4, use as your test upload)
+═══════════════════════════════════════════════════════════════════
