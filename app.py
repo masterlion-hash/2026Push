@@ -361,12 +361,19 @@ def login():
     state = secrets.token_urlsafe(16)
     session["oauth_state"] = state
 
+    # PKCE: generate code_verifier and code_challenge
+    code_verifier = secrets.token_urlsafe(64)[:128]
+    session["code_verifier"] = code_verifier
+    code_challenge = hashlib.sha256(code_verifier.encode("ascii")).hexdigest()
+
     params = {
-        "client_key":     CLIENT_KEY,
-        "response_type":  "code",
-        "scope":          SCOPES,
-        "redirect_uri":   REDIRECT_URI,
-        "state":          state,
+        "client_key":           CLIENT_KEY,
+        "response_type":        "code",
+        "scope":                SCOPES,
+        "redirect_uri":         REDIRECT_URI,
+        "state":                state,
+        "code_challenge":       code_challenge,
+        "code_challenge_method": "S256",
     }
     url = TIKTOK_AUTH_URL + "?" + "&".join(f"{k}={v}" for k, v in params.items())
     return redirect(url)
@@ -392,12 +399,14 @@ def callback():
         )
 
     # Exchange code for token
+    code_verifier = session.pop("code_verifier", "")
     token_resp = requests.post(TIKTOK_TOKEN_URL, data={
         "client_key":     CLIENT_KEY,
         "client_secret":  CLIENT_SECRET,
         "code":           code,
         "grant_type":     "authorization_code",
         "redirect_uri":   REDIRECT_URI,
+        "code_verifier":  code_verifier,
     }, headers={"Content-Type": "application/x-www-form-urlencoded"})
 
     data = token_resp.json()
